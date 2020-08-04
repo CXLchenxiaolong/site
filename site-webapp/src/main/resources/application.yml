@@ -1,0 +1,7 @@
+server:
+  profiles:
+    active: dev
+
+
+
+

@@ -1,0 +1,32 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: @project.groupId@-@project.artifactId@
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto
+      field-strategy: not_empty
+      #驼峰下划线转换
+      column-underline: true
+      #逻辑删除配置
+      logic-delete-value: 0
+      logic-not-delete-value: 1
+      db-type: mysql
+    refresh: false
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+
+#监控默认配置
+management:
+  endpoints:
+    web:
+      # Actuator的上下文
+      base-path: /sensor
+

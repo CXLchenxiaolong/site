@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/tms_user?characterEncoding=UTF-8&useUnicode=true&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: rootroot
+
+#mybatis
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/*.xml
+
+mybatis-plus.configuration.map-underscore-to-camel-case: true
+#日志相关配置
+logging:
+  level:
+    org.springframework.security: DEBUG
+  file:
+    max-size: 1GB
+    path: logs/@pom.artifactId@
+
