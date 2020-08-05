@@ -24,6 +24,7 @@
         <baoming.mybatis.plus.version>3.1.0</baoming.mybatis.plus.version>
         <mybatis.spring.version>2.0.0</mybatis.spring.version>
         <velocity.engine.core.version>2.0</velocity.engine.core.version>
+        <fastjson.version>1.2.58</fastjson.version>
     </properties>
 
     <modules>
@@ -81,6 +82,12 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
         </dependency>
 
         <dependency>
