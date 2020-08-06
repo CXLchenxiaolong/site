@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @MapperScan(basePackages = "com.site.service.mapper")
-@ComponentScan(basePackages = { "com.site"})
+@ComponentScan(basePackages = {"com.site"})
 @SpringBootApplication
 public class WebappApplication {
 

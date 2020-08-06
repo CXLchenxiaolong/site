@@ -17,6 +17,7 @@
     <description>site-webapp</description>
 
     <dependencies>
+
         <dependency>
             <groupId>com.site</groupId>
             <artifactId>site-service</artifactId>
