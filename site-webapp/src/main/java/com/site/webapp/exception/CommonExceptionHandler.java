@@ -16,6 +16,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.ConstraintViolationException;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -99,19 +100,19 @@ public class CommonExceptionHandler {
         return response;
     }
 
-//    /**
-//     * 处理请求单个参数不满足校验规则的异常信息
-//     *
-//     * @param request
-//     * @param exception
-//     * @return
-//     * @throws Exception
-//     */
-//    @ExceptionHandler(value = ConstraintViolationException.class)
-//    public ServerResponse<String> constraintViolationExceptionHandler(HttpServletRequest request, ConstraintViolationException exception) {
-//        ServerResponse<String> response = new ServerResponse<String>(ResponseCode.ARGUMENT_NOT_VALID.getCode(), exception.getMessage());
-//        return response;
-//    }
+    /**
+     * 处理请求单个参数不满足校验规则的异常信息
+     *
+     * @param request
+     * @param exception
+     * @return
+     * @throws Exception
+     */
+    @ExceptionHandler(value = ConstraintViolationException.class)
+    public ServerResponse<String> constraintViolationExceptionHandler(HttpServletRequest request, ConstraintViolationException exception) {
+        ServerResponse<String> response = new ServerResponse<String>(ResponseCode.ARGUMENT_NOT_VALID.getCode(), exception.getMessage());
+        return response;
+    }
 
 
 }
