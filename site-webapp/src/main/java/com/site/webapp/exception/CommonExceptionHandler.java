@@ -3,7 +3,7 @@ package com.site.webapp.exception;
 
 import com.alibaba.fastjson.JSON;
 import com.site.common.ServerResponse;
-import com.site.common.enums.ResponseCode;
+import com.site.common.enums.ResponseCodeEnum;
 import com.site.common.exception.BusinessException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.BindingResult;
@@ -96,7 +96,7 @@ public class CommonExceptionHandler {
         for (FieldError error : fieldErrors) {
             builder.append(error.getDefaultMessage() + "\n");
         }
-        ServerResponse<String> response = new ServerResponse<String>(ResponseCode.ARGUMENT_NOT_VALID.getCode(), builder.toString());
+        ServerResponse<String> response = new ServerResponse<String>(ResponseCodeEnum.ARGUMENT_NOT_VALID.getCode(), builder.toString());
         return response;
     }
 
@@ -110,7 +110,7 @@ public class CommonExceptionHandler {
      */
     @ExceptionHandler(value = ConstraintViolationException.class)
     public ServerResponse<String> constraintViolationExceptionHandler(HttpServletRequest request, ConstraintViolationException exception) {
-        ServerResponse<String> response = new ServerResponse<String>(ResponseCode.ARGUMENT_NOT_VALID.getCode(), exception.getMessage());
+        ServerResponse<String> response = new ServerResponse<String>(ResponseCodeEnum.ARGUMENT_NOT_VALID.getCode(), exception.getMessage());
         return response;
     }
 
