@@ -61,7 +61,7 @@ public class TokenAuthFilter implements Filter {
                 //用户信息放入session后面统一通过session取出
                 req.getSession().setAttribute(SystemConstants.USER_INFO,null);
             }
-            if (!serverResponse.getRespCode().equals(ResponseCodeEnum.SUCCESS)) {// 验证失败
+            if (!serverResponse.getRespCode().equals(ResponseCodeEnum.SUCCESS.getCode())) {
                 PrintWriter writer = null;
                 OutputStreamWriter osw = null;
                 try {
@@ -86,8 +86,10 @@ public class TokenAuthFilter implements Filter {
                     }
                 }
                 return;
+            }else{
+                filterChain.doFilter(request, response);
             }
-            filterChain.doFilter(request, response);
+
         }
 
     }
