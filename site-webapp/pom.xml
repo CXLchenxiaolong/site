@@ -19,7 +19,7 @@
     <dependencies>
 
         <dependency>
-            <groupId>com.site</groupId>
+            <groupId>com.site.service</groupId>
             <artifactId>site-service</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>

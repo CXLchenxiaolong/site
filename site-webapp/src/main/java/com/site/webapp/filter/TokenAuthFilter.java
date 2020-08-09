@@ -5,6 +5,7 @@ import com.site.common.ServerResponse;
 import com.site.common.constants.SystemConstants;
 import com.site.common.enums.ResponseCodeEnum;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
@@ -21,6 +22,7 @@ import java.io.UnsupportedEncodingException;
  * @Date: 2020/8/8 8:41 下午
  */
 @Slf4j
+@Component
 @WebFilter(urlPatterns = { "/api/v1/*" }, filterName = "tokenAuthFilter")
 public class TokenAuthFilter implements Filter {
     @Override
@@ -40,7 +42,7 @@ public class TokenAuthFilter implements Filter {
 
         boolean isFilter = false;
 
-        ServerResponse serverResponse = ServerResponse.fail(ResponseCodeEnum.SYSTEM_ERROR);
+        ServerResponse serverResponse = ServerResponse.success();
 
         String method = ((HttpServletRequest) request).getMethod();
         if (method.equals("OPTIONS")) {

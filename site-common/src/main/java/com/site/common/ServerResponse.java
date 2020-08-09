@@ -25,6 +25,15 @@ public class ServerResponse<T> implements Serializable {
     private T data;
 
 
+
+    public static  ServerResponse success() {
+        ServerResponse response = new ServerResponse();
+        response.setRespCode(ResponseCodeEnum.SUCCESS.getCode());
+        response.setRespMsg(ResponseCodeEnum.SUCCESS.getDesc());
+        return response;
+    }
+
+
     public static  <T> ServerResponse success(T data){
         ServerResponse response = new ServerResponse();
         response.setRespCode(ResponseCodeEnum.SUCCESS.getCode());
