@@ -35,8 +35,8 @@ public class TokenAuthFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse rep = (HttpServletResponse) response;
 
-//        response.setCharacterEncoding("UTF-8");
-//        response.setContentType("application/json; charset=utf-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("application/json; charset=utf-8");
 
         String token = req.getHeader("token");//header方式
 
