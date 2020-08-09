@@ -1,5 +1,6 @@
 package com.site.common.req;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import javax.validation.constraints.NotNull;
@@ -12,9 +13,11 @@ import javax.validation.constraints.NotNull;
 @Data
 public class UserReq {
 
+    @ApiModelProperty(value="密码",example="test")
     @NotNull(message = "pwd不能为空")
     private String pwd;
 
+    @ApiModelProperty(value="名字",example="test")
     @NotNull(message = "name不能为空")
     private String name;
 }

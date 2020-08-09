@@ -8,6 +8,9 @@ import com.site.common.req.UserReq;
 import com.site.common.vo.UserVo;
 import com.site.service.entity.User;
 import com.site.service.service.UserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,16 +28,17 @@ import java.util.List;
  * @since 2020-08-04
  */
 @Slf4j
-@Controller
 @RestController
+@Api(tags = "用户模块")
 @RequestMapping("/api/v1/user")
-public class UserController {
+public class UserController extends BaseController{
 
     @Autowired
     private UserService userService;
 
 
     @GetMapping
+    @ApiOperation(value = "获取所有用户", notes = "查询所有")
     public List<UserVo> getAll() {
         if(log.isTraceEnabled()) {
             log.trace("getAll() ");
@@ -51,6 +55,8 @@ public class UserController {
         return vos;
     }
 
+    @ApiOperation(value = "查询单个用户", notes = "查询单个用户")
+    @ApiImplicitParam(name = "id", value = "用户的唯一标识", required = true, dataType = "int")
     @GetMapping("/{id}")
     public UserVo getOne(@PathVariable int id){
         if(log.isTraceEnabled()) {
@@ -65,6 +71,7 @@ public class UserController {
     }
 
 
+    @ApiOperation(value = "分页查询用户", notes = "分页查询用户")
     @PostMapping("/queryByPage")
     public PageVo queryByPage(){
         int pageNo = 1;
@@ -75,7 +82,9 @@ public class UserController {
     }
 
 
+
     @PostMapping
+    @ApiOperation(value = "添加用户", notes = "添加用户")
     public Boolean insertOne(@RequestBody UserReq req) {
         User user = new User();
         user.setName(req.getName());

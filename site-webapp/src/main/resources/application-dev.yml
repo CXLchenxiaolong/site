@@ -24,7 +24,7 @@ mybatis-plus.configuration.map-underscore-to-camel-case: true
 #日志相关配置
 logging:
   level:
-    org.springframework.security: DEBUG
+    io.swagger.models.parameters.AbstractSerializableParameter: error
   file:
     max-size: 1GB
     path: logs/@pom.artifactId@
