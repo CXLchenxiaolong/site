@@ -1,8 +1,8 @@
 server:
-  profiles:
-    active: dev
   port: 2566
 spring:
+  profiles:
+    active: dev
   application:
     name: @project.groupId@-@project.artifactId@
   jackson:
@@ -31,7 +31,6 @@ management:
     web:
       # Actuator的上下文
       base-path: /sensor
-
 
 
 
